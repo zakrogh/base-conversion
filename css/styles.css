@@ -1,0 +1,9 @@
+.base{
+  max-width: 250px;
+}
+#userInput{
+  max-width: 300px;
+}
+.output{
+  display: none;
+}
