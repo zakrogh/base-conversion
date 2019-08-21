@@ -17,37 +17,6 @@ var getHexLetter = function (num){
       return num;
   }
 }
-var toBinary = function(num, div){
-  if(div < 1)
-    return;
-  if((num / div) >= 1){
-    output.push(1);
-    toBinary(num - div, div/2);
-  }else {
-    output.push(0);
-    toBinary(num, div/2);
-  }
-
-}
-var toTrinary = function(num){
-
-}
-var toHexadecimal = function(num){
-  if(num === 0){
-    return;
-  }else{
-    var remainder = num % 16;
-    if(num <= 16){
-      output.unshift(getHexLetter(num));
-      num = 0;
-    }else{
-      num = Math.floor(num / 16);
-      output.unshift(getHexLetter(remainder));
-    }
-
-    toHexadecimal(num);
-  }
-}
 
 var convertNum = function(num, base){
   if(num === 0){
@@ -69,23 +38,15 @@ var convertNum = function(num, base){
 var selectBase = function(num, base){
   switch(base){
     case "binary":
-      //toBinary(num, Math.pow(2, 32));
-      //trimZeroes();
       convertNum(num, 2);
     break;
     case "trinary":
-      //toTrinary(num);
       convertNum(num, 3);
     break;
     case "hexadecimal":
-      //toHexadecimal(num);
       convertNum(num, 16);
     break;
   }
-}
-
-var trimZeroes = function(){
-  output = output.slice(output.indexOf(1));
 }
 
 $(document).ready(function(){
